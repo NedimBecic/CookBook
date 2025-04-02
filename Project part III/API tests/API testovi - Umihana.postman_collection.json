@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "6b9ee713-7373-4206-ba6f-81787424913c",
+		"name": "API testovi - Umihana",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40394542"
+	},
+	"item": [
+		{
+			"name": "Otvaranje vijesti",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Pagination opcija",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Testiranje sigurnosti pristupa",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Pretraga po kategoriji",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

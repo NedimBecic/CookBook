@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "c413f7ea-fa47-4da4-b4f9-13f25960653e",
+		"name": "API testovi - Abdullah",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40394542"
+	},
+	"item": [
+		{
+			"name": "Nepostojeci clanak",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validacija nepostojećeg članka\", function () {\r",
+							"    const responseText = pm.response.text();\r",
+							"    \r",
+							"    pm.expect(pm.response.code).to.equal(404, \"Status kod mora biti 404\");\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html');\r",
+							"    \r",
+							"    const expectedElements = [\r",
+							"        {\r",
+							"            pattern: /<html.*>/i,\r",
+							"            message: \"HTML tag nije pronađen\"\r",
+							"        },\r",
+							"        {\r",
+							"            pattern: /<body.*>/i,\r",
+							"            message: \"Body tag nije pronađen\"\r",
+							"        },\r",
+							"        {\r",
+							"            pattern: /<meta[^>]*charset=/i,\r",
+							"            message: \"Meta charset nije pronađen\"\r",
+							"        },\r",
+							"        {\r",
+							"            pattern: /<title>[^<]*Not found[^<]*<\\/title>/i,\r",
+							"            message: \"Title sa 404 nije pronađen\"\r",
+							"        },\r",
+							"        {\r",
+							"            pattern: /(?:nije pronađen|ne postoji|nije dostupan|Not found)/i,\r",
+							"            message: \"Poruka o grešci nije pronađena\"\r",
+							"        }\r",
+							"    ];\r",
+							"\r",
+							"    expectedElements.forEach(element => {\r",
+							"        pm.expect(responseText, element.message).to.match(element.pattern);\r",
+							"    });\r",
+							"\r",
+							"    const requiredHeaders = {\r",
+							"        'Cache-Control': value => value.includes('no-store') || value.includes('no-cache'),\r",
+							"        'Content-Type': value => value.includes('text/html')\r",
+							"    };\r",
+							"\r",
+							"    Object.entries(requiredHeaders).forEach(([header, validator]) => {\r",
+							"        const headerValue = pm.response.headers.get(header);\r",
+							"        pm.expect(headerValue, `Header ${header} nije ispravan`).to.exist;\r",
+							"        pm.expect(validator(headerValue), `Header ${header} nema ispravnu vrijednost`).to.be.true;\r",
+							"    });\r",
+							"\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000, \"Response vrijeme je predugo\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.klix.ba/vijesti/bih/nepostojeci-clanak-123456789",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"vijesti",
+						"bih",
+						"nepostojeci-clanak-123456789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pretraga - nema vijesti",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validacija prikaza poruke za pretragu bez rezultata\", function () {\r",
+							"    const responseText = pm.response.text();\r",
+							"    \r",
+							"    pm.expect(pm.response.code).to.equal(200, \"Status kod mora biti 200\");\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html');\r",
+							"    \r",
+							"    const expectedElements = [\r",
+							"        {\r",
+							"            pattern: /Nema (?:vijesti|rezultata|pronađenih članaka)/i,\r",
+							"            message: \"Poruka 'Nema vijesti' nije pronađena\"\r",
+							"        },\r",
+							"    ];\r",
+							"\r",
+							"    expectedElements.forEach(element => {\r",
+							"        pm.expect(responseText, element.message).to.match(element.pattern);\r",
+							"    });\r",
+							"\r",
+							"    const url = pm.request.url;\r",
+							"    pm.expect(url.toString(), \"URL mora sadržavati search parametar\")\r",
+							"        .to.include('/pretraga?q=');\r",
+							"    \r",
+							"    const requiredHeaders = {\r",
+							"        'Cache-Control': value => value.includes('no-store') || value.includes('no-cache'),\r",
+							"        'Content-Type': value => value.includes('text/html')\r",
+							"    };\r",
+							"\r",
+							"    Object.entries(requiredHeaders).forEach(([header, validator]) => {\r",
+							"        const headerValue = pm.response.headers.get(header);\r",
+							"        pm.expect(headerValue, `Header ${header} nije ispravan`).to.exist;\r",
+							"        pm.expect(validator(headerValue), `Header ${header} nema ispravnu vrijednost`).to.be.true;\r",
+							"    });\r",
+							"\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000, \"Response vrijeme je predugo\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.klix.ba/pretraga?q=!?%23",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"pretraga"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "!?#"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "O nama",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200); \r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check if all keywords are present\", function () {\r",
+							"    const body = pm.response.text(); \r",
+							"    const keywords = [\r",
+							"        \"Historija\",\r",
+							"        \"Sadržaj\",\r",
+							"        \"Posjećenost\",\r",
+							"        \"Oglašavanje\",\r",
+							"        \"Internet u BiH\",\r",
+							"        \"ISSN broj\"\r",
+							"    ]; \r",
+							"\r",
+							"    keywords.forEach(function(keyword) {\r",
+							"        pm.expect(body).to.include(keyword); \r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.klix.ba/o-nama",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"o-nama"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

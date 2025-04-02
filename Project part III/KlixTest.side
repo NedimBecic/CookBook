@@ -1,0 +1,1234 @@
+{
+  "id": "1a3df943-59cb-418d-a618-26349552b590",
+  "version": "2.0",
+  "name": "KlixTest",
+  "url": "https://www.klix.ba",
+  "tests": [{
+    "id": "012dae95-cf66-4c6b-859e-4a81ea488146",
+    "name": "klixVijesti",
+    "commands": [{
+      "id": "fbdb86f2-2566-4cb0-944c-1b29a4510948",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3aa6b7fc-6922-4727-a628-e7004353ddb4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "859x941",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9cbc500-ff82-41d6-a1bb-7eacd0038f82",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Vijesti",
+      "targets": [
+        ["linkText=Vijesti", "linkText"],
+        ["css=li:nth-child(1) > .flex > .py-1", "css:finder"],
+        ["xpath=//a[contains(text(),'Vijesti')]", "xpath:link"],
+        ["xpath=//div[@id='nav_items']/ul/li/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/vijesti')]", "xpath:href"],
+        ["xpath=//li/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Vijesti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "491fad18-91c7-4828-bc57-f248107231ff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container:nth-child(10) .md\\3A col-span-1:nth-child(2) .hover\\3Atext-gray-600 > .font-title",
+      "targets": [
+        ["css=.container:nth-child(10) .md\\3A col-span-1:nth-child(2) .hover\\3Atext-gray-600 > .font-title", "css:finder"],
+        ["xpath=//div[10]/div[2]/div[2]/article/div[2]/a/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Dan državnosti BiH obilježen i u Beču, istaknuta važnost bh. dijaspore za austrijsko društvo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc821362-d047-4a8b-bd03-ac49416bf5b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.items-start",
+      "targets": [
+        ["css=.items-start", "css:finder"],
+        ["xpath=//div[@id='tekst']/div", "xpath:idRelative"],
+        ["xpath=//div/div[3]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9c6109b-647a-4934-bd59-3112e0386581",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md\\3A col-span-5 > .lg\\3Apx-5",
+      "targets": [
+        ["css=.md\\3A col-span-5 > .lg\\3Apx-5", "css:finder"],
+        ["xpath=//article/div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4dfc655f-f7d8-45be-a02a-dc917f5fc53a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.lead",
+      "targets": [
+        ["css=.lead", "css:finder"],
+        ["xpath=//div[@id='excerpt']/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Dan državnosti Bosne i Hercegovine obilježen je u i u bečkoj Gradskoj vijećnici. Prijem za civilne zajednice organizovali su vijećnici Aslihan Bozatemur, Amerisa Bajrić i Ibrahim Kaniz.')]", "xpath:innerText"]
+      ],
+      "value": "Dan državnosti Bosne i Hercegovine obilježen je u i u bečkoj Gradskoj vijećnici. Prijem za civilne zajednice organizovali su vijećnici Aslihan Bozatemur, Amerisa Bajrić i Ibrahim Kaniz."
+    }, {
+      "id": "82ede9a2-151f-4f25-a811-8127774c78d7",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4572ed37-453a-457f-a2f9-606a917a9ac9",
+    "name": "klixPogresanMail",
+    "commands": [{
+      "id": "18ab8457-6faa-4bdd-a594-d5dc9bb66769",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "09ebfa2a-987c-416f-b65f-c18e81150444",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "859x941",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e283bb05-c5ff-43fd-ade1-8081ef98bfa9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-7 > .w-5",
+      "targets": [
+        ["css=.w-7 > .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "637eba24-f32e-45ee-9739-020f01a73f36",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd7f5786-4830-463e-a62c-3dc47ae5f8f4",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "nepoznat.korisnik@example.com"
+    }, {
+      "id": "d0cb90a6-a415-44fa-bba8-31dbbc56a42f",
+      "comment": "",
+      "command": "click",
+      "target": "id=lpassword",
+      "targets": [
+        ["id=lpassword", "id"],
+        ["name=password", "name"],
+        ["css=#lpassword", "css:finder"],
+        ["xpath=//input[@id='lpassword']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "732b3aed-4cff-4cb4-8101-ae58bb53e087",
+      "comment": "",
+      "command": "type",
+      "target": "id=lpassword",
+      "targets": [
+        ["id=lpassword", "id"],
+        ["name=password", "name"],
+        ["css=#lpassword", "css:finder"],
+        ["xpath=//input[@id='lpassword']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Test123!"
+    }, {
+      "id": "b4c3c935-0004-4189-9a96-f20e359a60c1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dark\\3A bg-gray-800",
+      "targets": [
+        ["css=.dark\\3A bg-gray-800", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c249ffbd-78c2-4ac4-8728-7ab4d7ae210f",
+      "comment": "",
+      "command": "click",
+      "target": "id=errorlogindiv",
+      "targets": [
+        ["id=errorlogindiv", "id"],
+        ["css=#errorlogindiv", "css:finder"],
+        ["xpath=//div[@id='errorlogindiv']", "xpath:attributes"],
+        ["xpath=//div[@id='logindiv']/div", "xpath:idRelative"],
+        ["xpath=//body/div[4]/div/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40aa8a48-c580-4aec-add9-72d0e47bada4",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=errorlogindiv",
+      "targets": [
+        ["id=errorlogindiv", "id"],
+        ["css=#errorlogindiv", "css:finder"],
+        ["xpath=//div[@id='errorlogindiv']", "xpath:attributes"],
+        ["xpath=//div[@id='logindiv']/div", "xpath:idRelative"],
+        ["xpath=//body/div[4]/div/div/div/div", "xpath:position"]
+      ],
+      "value": "Greška: Korisnički nalog ne postoji."
+    }, {
+      "id": "9dfeafb2-9f05-429a-8240-2e47cd0de460",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "6b845c6c-5378-41cb-9646-76906bf8eae4",
+    "name": "KlixEkonomija",
+    "commands": [{
+      "id": "4e2cc60e-edfa-4c3c-9635-5a4420c36733",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4009d4ed-ef46-414f-aa1e-b7e0fec10d85",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "859x941",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f2d6026-ac79-4083-accc-985bd1bd5cb2",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Lifestyle",
+      "targets": [
+        ["linkText=Lifestyle", "linkText"],
+        ["css=li:nth-child(5) > .flex > .py-1", "css:finder"],
+        ["xpath=//a[contains(text(),'Lifestyle')]", "xpath:link"],
+        ["xpath=//div[@id='nav_items']/ul/li[5]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/lifestyle')]", "xpath:href"],
+        ["xpath=//li[5]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Lifestyle')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "96fec548-e69e-4ccf-955b-4e21e90c200d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "linkText=Lifestyle",
+      "targets": [
+        ["linkText=Lifestyle", "linkText"],
+        ["css=li:nth-child(5) > .flex > .py-1", "css:finder"],
+        ["xpath=//a[contains(text(),'Lifestyle')]", "xpath:link"],
+        ["xpath=//div[@id='nav_items']/ul/li[5]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/lifestyle')]", "xpath:href"],
+        ["xpath=//li[5]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Lifestyle')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "20fc1d18-5b68-4654-80ed-7377a85f50cf",
+      "comment": "",
+      "command": "click",
+      "target": "id=search-open",
+      "targets": [
+        ["id=search-open", "id"],
+        ["css=#search-open", "css:finder"],
+        ["xpath=//button[@id='search-open']", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "73f376af-0de6-4dd2-a61e-3bba16146e71",
+      "comment": "",
+      "command": "click",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.w-32", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2aedd6aa-73ce-482a-802f-2746b875e29d",
+      "comment": "",
+      "command": "type",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.w-32", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Ekonomija"
+    }, {
+      "id": "283f3ad5-4b57-4afb-96d9-c349eef6440c",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.w-32", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "e89dc1a3-beca-444f-899a-b7fdc85c201d",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.px-3:nth-child(1) .hover\\3Atext-gray-600 > .font-title",
+      "targets": [
+        ["css=.px-3:nth-child(1) .hover\\3Atext-gray-600 > .font-title", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Ne propustite jedinstvenu priliku: Prijavite se na Zimsku akademiju SSST-a')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "474c6c2b-7242-4913-a283-99e08bc98021",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.px-3:nth-child(2) .hover\\3Atext-gray-600 > .font-title",
+      "targets": [
+        ["css=.px-3:nth-child(2) .hover\\3Atext-gray-600 > .font-title", "css:finder"],
+        ["xpath=//div[2]/article/div[2]/a/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Njemačka ekonomija na ivici provalije: Prijeti zimska recesija zbog pada fabričkih aktivnosti')]", "xpath:innerText"]
+      ],
+      "value": "Njemačka ekonomija na ivici provalije: Prijeti zimska recesija zbog pada fabričkih aktivnosti"
+    }, {
+      "id": "20bc25cc-9deb-48d7-be61-e69705fbbfdb",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "9a5729ca-df19-4ef9-8791-d154973c8eb2",
+    "name": "KlixRSS",
+    "commands": [{
+      "id": "8c54d84d-db43-40f1-bc52-7ba966371880",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f3ddcfda-b4cf-452e-b600-90a28043021b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "859x860",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1b88c6e-407f-4c98-8a12-bc36564a3940",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,2640)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1d379de-10e4-4724-abb5-264849bb0f88",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=RSS",
+      "targets": [
+        ["linkText=RSS", "linkText"],
+        ["css=.text-tiny:nth-child(7)", "css:finder"],
+        ["xpath=//a[contains(text(),'RSS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/rss')]", "xpath:href"],
+        ["xpath=//a[6]", "xpath:position"],
+        ["xpath=//a[contains(.,'RSS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a4f6aff-11ca-4746-8140-26264b131064",
+      "comment": "",
+      "command": "echo",
+      "target": "Otvara se XML sadržaj, koji Selenium IDE ne može obraditi kao HTML. Razlog: XML nema DOM strukturu koju Selenium može prepoznati. ",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "83e0486a-942a-4883-b053-a095ef192a51",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//title",
+      "targets": [],
+      "value": "Klix.ba - RSS"
+    }, {
+      "id": "04bbabb0-2f68-47d0-8588-191371d459dd",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "58eea1c3-2fbe-4783-8d5b-874c875fb858",
+    "name": "klixBrisanjeNaloga",
+    "commands": [{
+      "id": "bfc47bef-cea4-4a00-b94b-cdccac3637d3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "618b31ea-b7df-4351-b936-c4a46ff65ac2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "859x1003",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67a7e7b1-4461-40cb-9e32-6fde7c302bd7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-7 > .w-5",
+      "targets": [
+        ["css=.w-7 > .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "852f2a0d-7fac-4de8-bae0-d790852d2b58",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.mx-auto > .ml-3",
+      "targets": [
+        ["css=.mx-auto > .ml-3", "css:finder"],
+        ["xpath=//div[@id='logindiv']/div[2]/div[2]/button/div", "xpath:idRelative"],
+        ["xpath=//div[2]/button/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d875ea1-9926-441d-8b14-c6bef3995106",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ac18397-3e6a-4282-a499-a63e9f8c4b81",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba"
+    }, {
+      "id": "dcfdb20d-52e8-40e5-b536-ec6cc799ab1e",
+      "comment": "",
+      "command": "click",
+      "target": "id=logindiv",
+      "targets": [
+        ["id=logindiv", "id"],
+        ["css=#logindiv", "css:finder"],
+        ["xpath=//div[@id='logindiv']", "xpath:attributes"],
+        ["xpath=//div[@id='authentication-modal']/div/div/div", "xpath:idRelative"],
+        ["xpath=//body/div[4]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a21130a-bdd0-4692-9771-f8a27fbab913",
+      "comment": "",
+      "command": "click",
+      "target": "id=lpassword",
+      "targets": [
+        ["id=lpassword", "id"],
+        ["name=password", "name"],
+        ["css=#lpassword", "css:finder"],
+        ["xpath=//input[@id='lpassword']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e31f1f50-a0d3-4e09-891f-cf795c4ebcd7",
+      "comment": "",
+      "command": "type",
+      "target": "id=lpassword",
+      "targets": [
+        ["id=lpassword", "id"],
+        ["name=password", "name"],
+        ["css=#lpassword", "css:finder"],
+        ["xpath=//input[@id='lpassword']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba123"
+    }, {
+      "id": "9b7cd975-9a5a-4ac5-8e8e-344c2a3d6cdd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dark\\3A bg-gray-800",
+      "targets": [
+        ["css=.dark\\3A bg-gray-800", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b79bb9f-1a30-4df8-8358-285f4c5bcf33",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-20 > #user .w-5",
+      "targets": [
+        ["css=.w-20 > #user .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "6067e059-6161-4c46-b398-6fcec6d99be3",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=vvsproba",
+      "targets": [
+        ["linkText=vvsproba", "linkText"],
+        ["css=.underline", "css:finder"],
+        ["xpath=//a[contains(text(),'vvsproba')]", "xpath:link"],
+        ["xpath=//div[@id='loggedindiv']/div[2]/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/profil/vvsproba')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'vvsproba')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eba7d811-4e50-48a0-8180-d224dc03e0e8",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "linkText=vvsproba",
+      "targets": [
+        ["linkText=vvsproba", "linkText"],
+        ["css=.underline", "css:finder"],
+        ["xpath=//a[contains(text(),'vvsproba')]", "xpath:link"],
+        ["xpath=//div[@id='loggedindiv']/div[2]/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/profil/vvsproba')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'vvsproba')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d339610-4e81-44e7-8581-d9d1351fe3ac",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Obriši korisnički nalog?",
+      "targets": [
+        ["linkText=Obriši korisnički nalog?", "linkText"],
+        ["css=.text-sm > div > .hover\\3Aunderline", "css:finder"],
+        ["xpath=//a[contains(text(),'Obriši korisnički nalog?')]", "xpath:link"],
+        ["xpath=//div[@id='loggedindiv']/div[2]/div[9]/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'mailto:komentari@klix.ba?Obrisi nalog')]", "xpath:href"],
+        ["xpath=//div[9]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Obriši korisnički nalog?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4897b934-4c7a-4f3a-b1b9-ef69f6d57428",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "33560b9f-6e4b-4cb2-a29b-47790c48ec11",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=div.message",
+      "targets": [],
+      "value": "Da li ste sigurni da želite obrisati svoj korisnički nalog?"
+    }]
+  }, {
+    "id": "e35b21f0-1d71-4a1b-8ffb-b32e78604ca2",
+    "name": "klixUspjesnaPrijava",
+    "commands": [{
+      "id": "088b421f-2b7e-42b4-8b40-b8944ab7ac20",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "44c9568d-d942-405d-8cd9-fb72df019129",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "964x1181",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "56f4312a-c25a-4063-8b94-848448dd59fb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-7 > .w-5",
+      "targets": [
+        ["css=.w-7 > .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ea55f4c-d8b3-4aa1-bef1-5fa751bbd6d5",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a454d1c5-eec9-4544-bace-933f58573ea9",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba"
+    }, {
+      "id": "1fc2645f-c762-44f2-9e7e-d385a5f7da01",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "c8667ffe-5f49-4348-9599-942b02ace5d8",
+      "comment": "",
+      "command": "type",
+      "target": "id=lpassword",
+      "targets": [
+        ["id=lpassword", "id"],
+        ["name=password", "name"],
+        ["css=#lpassword", "css:finder"],
+        ["xpath=//input[@id='lpassword']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba123"
+    }, {
+      "id": "1cb3b5dc-bdb9-4819-9d07-c39878a8bf40",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dark\\3A bg-gray-800",
+      "targets": [
+        ["css=.dark\\3A bg-gray-800", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce2abbcd-7250-490e-a90d-c236f80dd557",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.w-20 .w-7",
+      "targets": [
+        ["css=.w-20 .w-7", "css:finder"],
+        ["xpath=//button[@id='user']/div", "xpath:idRelative"],
+        ["xpath=//button[3]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "801f62c9-88dd-43e4-943b-18b204417090",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-20 > #user .w-5",
+      "targets": [
+        ["css=.w-20 > #user .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d76e780-c73f-4f18-b623-1246ae38394d",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.w-20 > #user .w-5",
+      "targets": [
+        ["css=.w-20 > #user .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4898028-00a0-492f-a3ac-2217c977f80e",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.w-20 > #user .w-5",
+      "targets": [
+        ["css=.w-20 > #user .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "f61f7410-8e7d-4107-9cbc-a314d625a9e3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=vvsproba",
+      "targets": [
+        ["linkText=vvsproba", "linkText"],
+        ["css=.underline", "css:finder"],
+        ["xpath=//a[contains(text(),'vvsproba')]", "xpath:link"],
+        ["xpath=//div[@id='loggedindiv']/div[2]/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/profil/vvsproba')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'vvsproba')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7640e0a1-1c36-45b9-a8a6-cac417f87d66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.h-44",
+      "targets": [
+        ["css=.h-44", "css:finder"],
+        ["xpath=//div[2]/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b491c0a7-b372-43e2-9af0-be24facdeb69",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-title",
+      "targets": [
+        ["css=.text-title", "css:finder"],
+        ["xpath=//div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b05c039c-7c38-4794-b278-62b56c2395fb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-title",
+      "targets": [
+        ["css=.text-title", "css:finder"],
+        ["xpath=//div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9798b45-bb38-42bf-8f9b-99dffe96cb44",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.text-title",
+      "targets": [
+        ["css=.text-title", "css:finder"],
+        ["xpath=//div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": "vvsproba"
+    }, {
+      "id": "2c573114-199e-40dc-8a03-dd23921bf5c7",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a585e5fe-ec9c-449c-99da-77022193b8bc",
+    "name": "klixKomentarisanjeClanka",
+    "commands": [{
+      "id": "fc367092-297f-4479-b963-63daa5d26ec1",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a46550ef-de0d-4d36-87c3-efb655dc5f2c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "964x1181",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "316e6c0c-4627-470b-aa22-d403ed488807",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-7 > .w-5",
+      "targets": [
+        ["css=.w-7 > .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "089fb46e-ed59-4c15-a27d-e21ae8fa19f0",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.w-7 > .w-5",
+      "targets": [
+        ["css=.w-7 > .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5806081-a021-45fe-991c-3f8db17069c3",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.w-7 > .w-5",
+      "targets": [
+        ["css=.w-7 > .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3c8979e-3641-4f0b-a073-61e7acb0465e",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "98ad220f-0713-4a77-aeb3-37d1b00b5c8a",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba"
+    }, {
+      "id": "fec32b3c-f221-4f4e-8382-dda45f9a5fac",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "e212ddcc-3e6e-4193-806b-5adb132a753e",
+      "comment": "",
+      "command": "type",
+      "target": "id=lpassword",
+      "targets": [
+        ["id=lpassword", "id"],
+        ["name=password", "name"],
+        ["css=#lpassword", "css:finder"],
+        ["xpath=//input[@id='lpassword']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba123"
+    }, {
+      "id": "e8fcd948-a0ac-4318-bbb1-1b582176e079",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dark\\3A bg-gray-800",
+      "targets": [
+        ["css=.dark\\3A bg-gray-800", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d74d48d-a800-44b6-9f20-76575fee3425",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sport",
+      "targets": [
+        ["linkText=Sport", "linkText"],
+        ["css=li:nth-child(3) > .flex > .py-1", "css:finder"],
+        ["xpath=//a[contains(text(),'Sport')]", "xpath:link"],
+        ["xpath=//div[@id='nav_items']/ul/li[3]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/sport')]", "xpath:href"],
+        ["xpath=//li[3]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Sport')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c3ec3f0-27d6-4ce3-96da-50c36cca1149",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md\\3Ahover\\3Atext-gray-300 > .font-title",
+      "targets": [
+        ["css=.md\\3Ahover\\3Atext-gray-300 > .font-title", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Islam Mahačev pokazao zašto je najbolji borac svijeta: Ekspresno je pobijedio i postavio novi rekord!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c719a84-d2f1-4227-b805-115a94a77be8",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,2781)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d67d4a81-071d-411e-80f7-a627b9c5e5e7",
+      "comment": "",
+      "command": "click",
+      "target": "id=komentarinput",
+      "targets": [
+        ["id=komentarinput", "id"],
+        ["name=komentar", "name"],
+        ["css=#komentarinput", "css:finder"],
+        ["xpath=//textarea[@id='komentarinput']", "xpath:attributes"],
+        ["xpath=//form[@id='samokomentar']/textarea", "xpath:idRelative"],
+        ["xpath=//form/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af818a8f-b35d-4ba7-9287-68d6c68e9f1b",
+      "comment": "",
+      "command": "type",
+      "target": "id=komentarinput",
+      "targets": [
+        ["id=komentarinput", "id"],
+        ["name=komentar", "name"],
+        ["css=#komentarinput", "css:finder"],
+        ["xpath=//textarea[@id='komentarinput']", "xpath:attributes"],
+        ["xpath=//form[@id='samokomentar']/textarea", "xpath:idRelative"],
+        ["xpath=//form/textarea", "xpath:position"]
+      ],
+      "value": "Test Komentar"
+    }, {
+      "id": "6a476858-438b-408a-b99b-d346dc7c91b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-gray-800",
+      "targets": [
+        ["css=.text-gray-800", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//form[@id='samokomentar']/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Objavi komentar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "14b40f48-f87e-4d6e-92cf-91eaf059e59c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.komentar:nth-child(8)",
+      "targets": [
+        ["css=.komentar:nth-child(8)", "css:finder"],
+        ["xpath=//div[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f42a28a-da92-4038-8618-17f8fc1feb1b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.komentar:nth-child(8) .mb-3 > div",
+      "targets": [
+        ["css=.komentar:nth-child(8) .mb-3 > div", "css:finder"],
+        ["xpath=//div[6]/div[2]/div/div", "xpath:position"]
+      ],
+      "value": "Test Komentar"
+    }, {
+      "id": "4eb082ac-814f-4d63-b667-2226583bdfa1",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e4f5a427-cab4-4817-8bc6-a87717cfc40c",
+    "name": "klixEditProfila",
+    "commands": [{
+      "id": "d5fee9b2-6248-4699-9879-d428710f325c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de38c747-9f2a-482e-8cf9-eee095898398",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "964x1181",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8730e51-b6c4-4902-9e7d-49f70645bddf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-7 > .w-5",
+      "targets": [
+        ["css=.w-7 > .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e2e1b3b-4abb-46fd-9fb5-21f7e29e257b",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3321bf4-52d7-445d-be89-9d3f9eb795f2",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=div:nth-child(3) .dark\\3A bg-gray-500", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba2"
+    }, {
+      "id": "67543b03-6c80-41fe-aa6e-c3e07dd5a135",
+      "comment": "",
+      "command": "click",
+      "target": "id=lpassword",
+      "targets": [
+        ["id=lpassword", "id"],
+        ["name=password", "name"],
+        ["css=#lpassword", "css:finder"],
+        ["xpath=//input[@id='lpassword']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7105335b-195a-4d41-a317-3b1353b9a2cd",
+      "comment": "",
+      "command": "type",
+      "target": "id=lpassword",
+      "targets": [
+        ["id=lpassword", "id"],
+        ["name=password", "name"],
+        ["css=#lpassword", "css:finder"],
+        ["xpath=//input[@id='lpassword']", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba123"
+    }, {
+      "id": "2b2c7f2e-3b26-42dd-b90b-c215508313bb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dark\\3A bg-gray-800",
+      "targets": [
+        ["css=.dark\\3A bg-gray-800", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='signinForm']/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "07f9e497-14d1-4dbd-bd15-0cb11473d343",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.flex:nth-child(7) > .inline-block",
+      "targets": [
+        ["css=.flex:nth-child(7) > .inline-block", "css:finder"],
+        ["xpath=//a[contains(text(),'Gaza')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/tagovi/gaza/1242')]", "xpath:href"],
+        ["xpath=//div[7]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d5416fa-05bc-47df-afca-05f9c1edd382",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.flex:nth-child(7) > .inline-block",
+      "targets": [
+        ["css=.flex:nth-child(7) > .inline-block", "css:finder"],
+        ["xpath=//a[contains(text(),'Gaza')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/tagovi/gaza/1242')]", "xpath:href"],
+        ["xpath=//div[7]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d7896df-f2cc-4b03-a496-456074752f78",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-20 > #user .w-5",
+      "targets": [
+        ["css=.w-20 > #user .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "2588d689-70ff-4380-bcad-eedf94bb6a65",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=vvsproba2",
+      "targets": [
+        ["linkText=vvsproba2", "linkText"],
+        ["css=.underline", "css:finder"],
+        ["xpath=//a[contains(text(),'vvsproba2')]", "xpath:link"],
+        ["xpath=//div[@id='loggedindiv']/div[2]/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.klix.ba/profil/vvsproba2')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'vvsproba2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f413949-1a13-4aca-be66-78cf2178ad4e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=uredi profil",
+      "targets": [
+        ["linkText=uredi profil", "linkText"],
+        ["css=.text-opacity-50 > .hover\\3Aunderline:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'uredi profil')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/mojprofil')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'uredi profil')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d0489da-e76a-4d6a-ab91-b9387a0cf451",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c0f14fd-5578-48da-80c4-6645983d7f50",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba"
+    }, {
+      "id": "5b9cc5bc-ea31-4947-9672-401cae4fbd4e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-indigo-600",
+      "targets": [
+        ["css=.bg-indigo-600", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5adccd19-47e9-4985-8465-f1baefa75e1f",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4d428a8-9b5f-44b0-8555-18c08c7dc67a",
+      "comment": "",
+      "command": "assertValue",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "vvsproba"
+    }, {
+      "id": "8a89a5ef-a4ea-4032-84bb-33e3a3ca6a66",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "6fe0eb2f-d082-4fdd-a931-e22d2964350d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://www.klix.ba/"],
+  "plugins": []
+}

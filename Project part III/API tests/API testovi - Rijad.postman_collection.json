@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "29b7ac7d-efa6-4457-9d69-33cf14157047",
+		"name": "API test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41263492"
+	},
+	"item": [
+		{
+			"name": "Lifestyle",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const baseUrl = \"https://www.klix.ba/lifestyle\";\r",
+							"\r",
+							" pm.sendRequest(baseUrl, function (err, res) { if (err) { console.error(\"Greška pri preuzimanju glavne stranice:\", err); return; }\r",
+							"\r",
+							"\r",
+							"const html = res.text();\r",
+							"const regex = /<a\\s+href=\"(\\/lifestyle\\/[^\"]+)\"[^>]*>/g;\r",
+							"let match;\r",
+							"const links = [];\r",
+							"\r",
+							"while ((match = regex.exec(html)) !== null) {\r",
+							"    links.push(\"https://www.klix.ba\" + match[1]);\r",
+							"}\r",
+							"\r",
+							"\r",
+							"const limitedLinks = links.slice(0, 5);\r",
+							"\r",
+							"\r",
+							"pm.environment.set(\"newsLinks\", JSON.stringify(limitedLinks));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newsLinks = JSON.parse(pm.environment.get(\"newsLinks\"));\r",
+							"\r",
+							" let promises = newsLinks.map((link) =>\r",
+							"     new Promise((resolve, reject) => {\r",
+							"         pm.sendRequest(link, function (err, res) {\r",
+							"             if (err) {\r",
+							"                 reject(`Greška pri preuzimanju linka ${link}: ${err}`);\r",
+							"                 return;\r",
+							"             }\r",
+							"\r",
+							"             \r",
+							"             const containsLifestyle = res.text().includes('<div class=\"font-title text-tiny\">Lifestyle</div>');\r",
+							"\r",
+							"             if (containsLifestyle) {\r",
+							"                 resolve(`Vijest sadrži 'Lifestyle' u div-u na linku: ${link}`);\r",
+							"             } else {\r",
+							"                 reject(`Vijest NE sadrži 'Lifestyle' u div-u na linku: ${link}`);\r",
+							"             }\r",
+							"         });\r",
+							"     })\r",
+							" );\r",
+							"\r",
+							" Promise.allSettled(promises).then((results) => {\r",
+							"     results.forEach((result) => {\r",
+							"         if (result.status === \"fulfilled\") {\r",
+							"             console.log(result.value);\r",
+							"             pm.test(result.value, function () {\r",
+							"                 pm.expect(true).to.be.true;\r",
+							"             });\r",
+							"         } else {\r",
+							"             console.error(result.reason);\r",
+							"             pm.test(result.reason, function () {\r",
+							"                 pm.expect.fail(result.reason);\r",
+							"             });\r",
+							"         }\r",
+							"     });\r",
+							" });\r",
+							"\r",
+							"     "
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.klix.ba/lifestyle",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"lifestyle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Krizaljka",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200 OK\", function () {\r",
+							"    pm.expect(pm.response.code).to.eql(200); \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Element with specified class should exist\", function () {\r",
+							"    const body = pm.response.text(); \r",
+							"    const className = 'col-span-full lg:col-span-7 lg:col-start-1 xl:col-span-8 xl:col-start-1 lg:row-start-1 mx-auto bg-gray-300 inline-grid grid-cols-11 gap-0.5 border border-2 flex-1 mt-0 lg:mt-0';\r",
+							"    \r",
+							"    \r",
+							"    pm.expect(body).to.include(className);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.klix.ba/krizaljka",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"krizaljka"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Zaboravljena lozinka",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status is 200 OK\", function () {\r",
+							"    const statusCode = pm.response.status; \r",
+							"    pm.expect(pm.response.code).to.eql(200); \r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message 'Zaboravljena lozinka' is present\", function () {\r",
+							"    const body = pm.response.text(); \r",
+							"    const message1 = \"Zaboravljena lozinka\";\r",
+							"    pm.expect(body).to.include(message1); \r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message 'Da biste resetovali vašu lozinku molimo unesite email koji ste koristili prilikom registracije' is present\", function () {\r",
+							"    const body = pm.response.text(); \r",
+							"    const message2 = \"Da biste resetovali vašu lozinku molimo unesite email koji ste koristili prilikom registracije\"; \r",
+							"    pm.expect(body).to.include(message2); \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.klix.ba/resetpass",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"resetpass"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

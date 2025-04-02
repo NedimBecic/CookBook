@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "6824076f-4005-4048-a4e2-34a49248eece",
+		"name": "API testovi - Nedim",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40394542"
+	},
+	"item": [
+		{
+			"name": "RSS - test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validacija RSS feed funkcionalnosti\", function () {\r",
+							"    pm.expect(pm.response.code, \"Status kod mora biti 200\").to.equal(200);\r",
+							"    \r",
+							"    const contentType = pm.response.headers.get('Content-Type');\r",
+							"    pm.expect(contentType, \"Content-Type mora biti application/xml\").to.include('application/xml');\r",
+							"\r",
+							"    const responseBody = pm.response.text();\r",
+							"    pm.expect(responseBody, \"RSS element nije pronađen\").to.include('<rss');\r",
+							"    \r",
+							"    const requiredElements = {\r",
+							"        'title': /<title>.*?<\\/title>/,\r",
+							"        'link': /<link>.*?<\\/link>/,\r",
+							"        'description': /<description>.*?<\\/description>/,\r",
+							"        'language': /<language>.*?<\\/language>/,\r",
+							"        'pubDate': /<pubDate>.*?<\\/pubDate>/\r",
+							"    };\r",
+							"    \r",
+							"    Object.entries(requiredElements).forEach(([elementName, pattern]) => {\r",
+							"        const elementExists = pattern.test(responseBody);\r",
+							"        pm.expect(elementExists, `${elementName} element nije pronađen u RSS feed-u`).to.be.true;\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.klix.ba/rss",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"rss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multimedijalni sadrzaj - test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validacija multimedijalnog sadržaja za specifičan članak\", function () {\r",
+							"    const responseText = pm.response.text();\r",
+							"    \r",
+							"    pm.expect(pm.response.code).to.equal(200, \"Status kod mora biti 200\");\r",
+							"    \r",
+							"    const imageRegex = /<meta[^>]*?property=\"og:image\"[^>]*?content=\"([^\"]*?)\"/i;\r",
+							"    const imageUrl = responseText.match(imageRegex)?.[1];\r",
+							"    pm.expect(imageUrl, \"Header slika nije pronađena\").to.exist;\r",
+							"    pm.expect(imageUrl, \"URL header slike nije validan\").to.match(/^https?:\\/\\/.+/);\r",
+							"    \r",
+							"    const embedPatterns = [\r",
+							"        /<blockquote[^>]*?class=\"twitter-tweet\"[^>]*?>/i,\r",
+							"        /<iframe[^>]*?src=\"[^\"]*?(?:twitter\\.com|x\\.com)[^\"]*?\"[^>]*?>/i,\r",
+							"        /<div[^>]*?class=\"[^\"]*?(?:twitter|x-embed)[^\"]*?\"[^>]*?>/i\r",
+							"    ];\r",
+							"    const hasEmbed = embedPatterns.some(pattern => pattern.test(responseText));\r",
+							"    \r",
+							"    const twitterLinkPattern = /<a[^>]*?href=\"(https?:\\/\\/(?:www\\.)?(?:twitter\\.com|x\\.com)[^\"]*?)\"[^>]*?>/i;\r",
+							"    const twitterLink = responseText.match(twitterLinkPattern)?.[1];\r",
+							"    \r",
+							"    pm.expect(hasEmbed, \"Twitter/X embed nije pronađen\").to.be.true;\r",
+							"    pm.expect(twitterLink, \"Twitter/X link nije pronađen\").to.exist;\r",
+							"    pm.expect(twitterLink, \"Twitter/X link nije validan\").to.match(/^https?:\\/\\/(?:www\\.)?(?:twitter\\.com|x\\.com)/i);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://www.klix.ba/vijesti/bih/turski-kontingent-eufor-a-vjezbao-suzbijanje-nereda-i-kontrolu-demonstracija/250118063/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"vijesti",
+						"bih",
+						"turski-kontingent-eufor-a-vjezbao-suzbijanje-nereda-i-kontrolu-demonstracija",
+						"250118063",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Otvaranje linka sa stranice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validacija nasumično odabranog članka iz prvih 5\", function () {\r",
+							"    const responseText = pm.response.text();\r",
+							"\r",
+							"    const relatedSectionExists = responseText.includes('Vezani članci');\r",
+							"    pm.expect(relatedSectionExists, \"Sekcija 'Vezani članci' nije pronađena\").to.be.true;\r",
+							"\r",
+							"    const relatedArticles = [];\r",
+							"    const articlePattern = /<article[^>]*>.*?<a[^>]*href=\"([^\"]*)\"[^>]*>.*?<h2[^>]*>(.*?)<\\/h2>/gs;\r",
+							"    let match;\r",
+							"\r",
+							"    let count = 0;\r",
+							"    while ((match = articlePattern.exec(responseText)) !== null && count < 5) {\r",
+							"        relatedArticles.push({\r",
+							"            url: match[1],\r",
+							"            title: match[2].trim(),\r",
+							"            fullUrl: `https://www.klix.ba${match[1]}`\r",
+							"        });\r",
+							"        count++;\r",
+							"    }\r",
+							"\r",
+							"    pm.expect(relatedArticles, \"Nisu pronađeni povezani članci\").to.not.be.empty;\r",
+							"\r",
+							"    const randomIndex = Math.floor(Math.random() * relatedArticles.length);\r",
+							"    const randomArticle = relatedArticles[randomIndex];\r",
+							"\r",
+							"    pm.sendRequest(randomArticle.fullUrl, function (err, response) {\r",
+							"        pm.test(`Test nasumično odabranog članka: ${randomArticle.title}`, function () {\r",
+							"            pm.expect(err, `Greška pri otvaranju članka`).to.be.null;\r",
+							"            pm.expect(response.code, `Status kod za članak mora biti 200`).to.equal(200);\r",
+							"\r",
+							"            const articleContent = response.text();\r",
+							"\r",
+							"            const is404 = articleContent.includes('Stranica nije pronađena') || \r",
+							"                          articleContent.includes('Error 404');\r",
+							"            pm.expect(is404, `Članak vraća 404 stranicu`).to.be.false;\r",
+							"        });\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.klix.ba/vijesti/svijet/islamski-dzihad-palestine-pozvao-izrael-da-obustavi-napade-uoci-primirja-zaprijetili-ubijanjem-talaca/250118076",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"vijesti",
+						"svijet",
+						"islamski-dzihad-palestine-pozvao-izrael-da-obustavi-napade-uoci-primirja-zaprijetili-ubijanjem-talaca",
+						"250118076"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

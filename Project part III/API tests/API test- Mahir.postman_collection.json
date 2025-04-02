@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "553dfe38-8359-4c64-9775-1dcfdad196a7",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37257364"
+	},
+	"item": [
+		{
+			"name": "https://www.klix.ba/pretraga?q=Sarajevo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Testiranje pretraživanja vijesti\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    const responseBody = pm.response.text();\r",
+							"\r",
+							"    pm.expect(pm.response.text()).to.include(\"Sarajevo pamti svoje automobiliste: Zlatko Kapetanović\");\r",
+							"\r",
+							"    let articles = responseBody.match(/<article[^>]*class=\"[^\"]*overflow-hidden[^\"]*\"[^>]*>[\\s\\S]*?<\\/article>/g) || [];\r",
+							"    pm.expect(articles.length).to.be.above(0, \"Nema pronađenih članaka u odgovoru.\");\r",
+							"\r",
+							"    articles.forEach(article => {\r",
+							"        let titleMatch = article.match(/<h2[^>]*class=\"[^\"]*text-tiny[^\"]*\"[^>]*>(.*?)<\\/h2>/);\r",
+							"        pm.expect(titleMatch).to.not.be.null;\r",
+							"        pm.expect(titleMatch[1].trim()).to.not.be.empty;\r",
+							"\r",
+							"        let linkMatch = article.match(/<a[^>]*href=\"([^\"]+)\"[^>]*>/);\r",
+							"        pm.expect(linkMatch).to.not.be.null;\r",
+							"        pm.expect(linkMatch[1].trim()).to.match(/^https?:\\/\\/|^\\//); \r",
+							"    });\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.5"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.klix.ba/"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "ppid=eyJpdiI6ImtSays3aGpMRWI5dk92M0ZUNTkza0E9PSIsInZhbHVlIjoicmN0ZnlpaVJ1OEJud3p2bmhuTXowRFNPbHdXZkNCYy9vVGt6WjNHVEl0VEMwUEVTWFJJWG9hRG41MmxzOGxLTm4yNWhobXFVQzFnS09ZSk9rLzdNcUlZUkdEdmhZN0FYcnBXTTFrNFZzb000WFc2N2ljQzAweE0zTHZSQndKNTAiLCJtYWMiOiIzZTUwZWE4Nzc5YjhkMjliYzIwNmMxNmZhMjQ2ZDM4MmQ2ZGQ4MWVhMzk4NjI5MmYwNzljNDcyZDAwOGM1NGU4IiwidGFnIjoiIn0^%^3D; theme=dark; _ga_C1R3FZH249=GS1.1.1737300368.8.1.1737300376.52.1.1318883018; _ga=GA1.1.326435081.1730017940; DotMetrics.DomainCookie={dc:4576ed23-8c5e-4806-bdf5-16c3ffb8a1cb,ts:1730017940399}; cto_bundle=niZfe19ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plU3ZzbVc3eHVUOVhVWXBjY2JEcEc1eXVlJTJCWlJTdGF4eVRTV2t0WjJFUElNOHZzMnQlMkZ2UTYwVWZRemNWWDIlMkZEd2tucE1KSTM2MThvY0pDd3gzJTJGeU9IRlFLJTJGeDZMc0F5U3YxNUgxTW5XMTNUWDA3RWVYVUhRZDlIOWJwN3hRMlo0dyUzRCUzRA; cto_bidid=jfkVtF9LRU9FV0pTUjh1YW42MDJPamtyWlY0RVpMR1c5NEdTSGZDOEg2Rk02TDZmTlhQTEFwbWlqVENvV1VuY2RNZzlBY29FN1dZN29WS3JYME9EQ0dybnV2YiUyRkVLMGlGS3EwYUJ3TUNmSVVZeUlvJTNE; _cc_id=464431c243a3871cf8467dc56f633b54; cto_bundle=Do-zTV9ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plWEJnTVAwcUVUR0JESFNNSUNaQVFaR05FU2JERk9LakRXbFdUY3RkMFR4ZnhQWjlnUVJUayUyRmExMmp5b3BqNDN1VUFiYlUlMkZ4MHkwZ0p0QyUyQnRydnhRNjNVM3dBaEd4SnBLZHV2NDZWNFhkdCUyQjhHekVNaERwS1pqdDRiVHhuS0RQR0ElM0QlM0Q; cto_bundle=niZfe19ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plU3ZzbVc3eHVUOVhVWXBjY2JEcEc1eXVlJTJCWlJTdGF4eVRTV2t0WjJFUElNOHZzMnQlMkZ2UTYwVWZRemNWWDIlMkZEd2tucE1KSTM2MThvY0pDd3gzJTJGeU9IRlFLJTJGeDZMc0F5U3YxNUgxTW5XMTNUWDA3RWVYVUhRZDlIOWJwN3hRMlo0dyUzRCUzRA; __gads=ID=da51a01573ba3b79:T=1730017945:RT=1737300371:S=ALNI_MYdURx0ER_t9BW2w81Xmu4Sp6OaHA; __gpi=UID=00000f5bb047a635:T=1730017945:RT=1737300371:S=ALNI_MZqFxDSv-KN2JcgcDaRx1iXJd7gtg; __eoi=ID=c26f00e55aa10a03:T=1730017945:RT=1737300371:S=AA-Afjbv9Itnjb6N-InvuJcVo9WN; cto_dna_bundle=lPuwXl9oY056UEJJdFMlMkZaUUx0b3hGWkYwa2N6bWxaTXVsZ2Q2UDNlMkxiMjlndzNCeU5vU2dHOVFFQ2I5ZlZQRUVuUlllaHBNMXBaM3Bvbm4lMkJtcHljMDlqRHclM0QlM0Q; DotmetricsDomainFPH=^%^7B^%^22dfph^%^22^%^3A^%^22164b6acbf2e92e3b2dcd96ac49acc929a1cb4432^%^22^%^2C^%^22time^%^22^%^3A1737062230738^%^2C^%^22niTime^%^22^%^3A1737300370221^%^2C^%^22v^%^22^%^3A10^%^7D; _oid=1228a8d2-4cc2-4dc2-ae0f-03acac1a6c48; klix_login_u=1; klix_login_k=; klix_login_sid=dabea0ae073e7b9bc042f50d7c2d3f03; g_state={i_l:0}; XSRF-TOKEN=eyJpdiI6IndZeVNCV1JoZzJndVIzRWZnVExtMVE9PSIsInZhbHVlIjoidUFQZU4xbWh1ZmxpM2V1b1MwQmZSTUJWM0h3dnF5am42VHRVeWFqSzJVemQ0Y1BOTjFiTnZra0lBTFF6T2Z4MTBCcXhERzR0ZE03aHN6UXUzaERZem1LK29zOUVMZlpvV2kwYjFhMHYvQUd4S1M1cld4NnFXdkVxTkl6UzB2eUkiLCJtYWMiOiI3MTQwMjhkZTM5MjdmMzE0ODlkZDc0ZDAzZjg1YmM5NDQ0ODBiM2IyN2UxNWM1NDk5YmZlYjc3Yjc3ODBlMDQwIiwidGFnIjoiIn0^%^3D; klixba_session=eyJpdiI6InZ5aHUrL3RYQVc4NmxaUHVtaGxjcWc9PSIsInZhbHVlIjoiU2c0ZThubTNUSWJDMXJsakhxZXliOHV6VFhPK3lvcHE3bE16Mi9hcGpabzBWZHpTNXBRNkRKZm9OTDVyb2RCUHBUWXNoMnJFT25pdmpSTHN6aGQxY2JWTzRIc1FYZHNySTRZaUx6akx5TTFtWm51M0ZTczUyVWNPRE1xcGd6L1YiLCJtYWMiOiJkZjIyNWM3MjI2MWIwZDEyMDA2ODUzMmE5MGM2YjM3MWQwOWI3NTE1YzM0MWQyYWRiMThmZmUyZWNlMjIyOTBjIiwidGFnIjoiIn0^%^3D; connectId={ttl:86400000,lastUsed:1737062229836,lastSynced:1737062229836}; kl1x_c00k1e=74e842f07bb652e838e6df87b85cf478; user_ip=109.163.161.196; _lr_geo_location=BA; DM_SitId287=1; DM_SitId287SecId1288=1; panoramaId_expiry=1737905170420; panoramaId=62bc6cdd6202f8ff0c916b4f0668185ca02cffb048ea55b233820c6a93a819cb; panoramaIdType=panoDevice; DM_SitId287SecId1299=1; FCNEC=^%^5B^%^5B^%^22AKsRol-gbSQJUpcQcz-cZip4M27alNr9cw69_RslnjLLSf150DcAJUSE7Y9wHR6hTLbt7weiICBpiyArNZG4Nbm4f8lgKWhx3MQezO81g1EmqAAco4v8mZwxJ4eEVaZeMZunZBELP3ZxUy8rgpf7ByvIzV0HVl-nXA^%^3D^%^3D^%^22^%^5D^%^5D"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "document"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "navigate"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "Sec-Fetch-User",
+						"value": "?1"
+					},
+					{
+						"key": "Priority",
+						"value": "u=0, i"
+					}
+				],
+				"url": {
+					"raw": "https://www.klix.ba/pretraga?q=Sarajevo",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"pretraga"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Sarajevo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.klix.ba/mojprofil",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Promjena korisničkog imena postojećeg korisnika\", function() {\r",
+							"\r",
+							"    // provjera statusnog koda\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    // odgovor sadrži novi username\r",
+							"    const responseText = pm.response.text();\r",
+							"    pm.expect(responseText).to.include('value=\"vvstester11\"');\r",
+							"\r",
+							"    // odgovor sadrži poruku o uspješnoj promjeni\r",
+							"    pm.expect(pm.response.text()).to.include(\"Uspješno ste editovali profil.\");\r",
+							"\r",
+							"    // provjera da li je zahtjev ostvaren za vrijeme manje od pola sekunde\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.5"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.klix.ba"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.klix.ba/mojprofil"
+					},
+					{
+						"key": "Cookie",
+						"value": "ppid=eyJpdiI6ImtSays3aGpMRWI5dk92M0ZUNTkza0E9PSIsInZhbHVlIjoicmN0ZnlpaVJ1OEJud3p2bmhuTXowRFNPbHdXZkNCYy9vVGt6WjNHVEl0VEMwUEVTWFJJWG9hRG41MmxzOGxLTm4yNWhobXFVQzFnS09ZSk9rLzdNcUlZUkdEdmhZN0FYcnBXTTFrNFZzb000WFc2N2ljQzAweE0zTHZSQndKNTAiLCJtYWMiOiIzZTUwZWE4Nzc5YjhkMjliYzIwNmMxNmZhMjQ2ZDM4MmQ2ZGQ4MWVhMzk4NjI5MmYwNzljNDcyZDAwOGM1NGU4IiwidGFnIjoiIn0%3D; theme=dark; _ga_C1R3FZH249=GS1.1.1737300368.8.1.1737301463.55.1.1318883018; _ga=GA1.1.326435081.1730017940; DotMetrics.DomainCookie={dc:4576ed23-8c5e-4806-bdf5-16c3ffb8a1cb,ts:1730017940399}; cto_bundle=w-3lvF9ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plWk8yT2VSdVFKYzg1Tkx5YUclMkZhbWpSTHJoT2NOVW45S0xhOGhWZksxeExxcnRhWmFaUGRlJTJGV1h3OEFPNlpaRHhQN2Z2YmVOOXZQTTQ0TW5kOU95JTJCSzZZYXolMkJPeVJqY0ZVSVB3OGsxbk02dCUyQjhhVHJ3dllwdVp2Vjg5dVY1OE53dyUzRCUzRA; cto_bidid=T2DEDF9LRU9FV0pTUjh1YW42MDJPamtyWlY0RVpMR1c5NEdTSGZDOEg2Rk02TDZmTlhQTEFwbWlqVENvV1VuY2RNZzlBY29FN1dZN29WS3JYME9EQ0dybnV2WTc1NmslMkZOOEM4ZVlmYUpBa0NLVDBjJTNE; _cc_id=464431c243a3871cf8467dc56f633b54; cto_bundle=5c7b_l9ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plZHg3Y0xIUEh5NHFDUWMlMkJLeUc3MkRHZTlJdmZGSEhPZTRHRCUyRmZoQWREZDRpdGo2NXVmYmRnZVBMVlVXdjglMkZGdnhsRkYxdE5YbFQxNSUyQmxCcWg0aWRMVjJyRGplaSUyRllRMVRhQjhIQkl5MG1IU29kampiTXZqNWh3QzI2cFdGZlJ3ZyUzRCUzRA; cto_bundle=w-3lvF9ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plWk8yT2VSdVFKYzg1Tkx5YUclMkZhbWpSTHJoT2NOVW45S0xhOGhWZksxeExxcnRhWmFaUGRlJTJGV1h3OEFPNlpaRHhQN2Z2YmVOOXZQTTQ0TW5kOU95JTJCSzZZYXolMkJPeVJqY0ZVSVB3OGsxbk02dCUyQjhhVHJ3dllwdVp2Vjg5dVY1OE53dyUzRCUzRA; __gads=ID=da51a01573ba3b79:T=1730017945:RT=1737301460:S=ALNI_MYdURx0ER_t9BW2w81Xmu4Sp6OaHA; __gpi=UID=00000f5bb047a635:T=1730017945:RT=1737301460:S=ALNI_MZqFxDSv-KN2JcgcDaRx1iXJd7gtg; __eoi=ID=c26f00e55aa10a03:T=1730017945:RT=1737301460:S=AA-Afjbv9Itnjb6N-InvuJcVo9WN; cto_dna_bundle=cLUfCV9oY056UEJJdFMlMkZaUUx0b3hGWkYwa2N6bWxaTXVsZ2Q2UDNlMkxiMjlndzNCeU5vU2dHOVFFQ2I5ZlZQRUVuUll3OSUyQlhLWDh2Q0dmZCUyRnkxcSUyRmMlMkJ6JTJGQSUzRCUzRA; DotmetricsDomainFPH=%7B%22dfph%22%3A%22164b6acbf2e92e3b2dcd96ac49acc929a1cb4432%22%2C%22time%22%3A1737062230738%2C%22niTime%22%3A1737300370221%2C%22v%22%3A10%7D; _oid=1228a8d2-4cc2-4dc2-ae0f-03acac1a6c48; klix_login_u=1; klix_login_k=; klix_login_sid=dabea0ae073e7b9bc042f50d7c2d3f03; g_state={i_l:0}; XSRF-TOKEN=eyJpdiI6ImEwQnRSbFMrak1wVk9HZjl5OHBOdmc9PSIsInZhbHVlIjoiLzUvSjMrUnVic0ZuZEJUOVVTa0RnTElZU2lLelhrZ0pSb1JYZ3RhbFA1ZXFRQWhLc3gvUWxSRU1kbnoyNDg1TnB4aHJ3cWhTNEdwYWIwZjgvQktONGFCUXl4aUFGZ1NVUG1HcFY1UEhEc3hpZnJCb05kSnBPUDNNWWNaVjdCSnYiLCJtYWMiOiJhMThlYjQ3YjU5NTUwNzllMmU3ZmM0ODFmNzhhNzNmMTBjMzAxYWEzMWE4OWMyZGJiYTRlYmNkNmY1MTdhYmM1IiwidGFnIjoiIn0%3D; klixba_session=eyJpdiI6IlZ6YkF5bE9FR0pRV3NvV3VHZCtzVFE9PSIsInZhbHVlIjoiMlo4dyt1R0ZMR3l2WndubU9aamt2QnZqRVY3aDFkWG51Wnppc3U1cXlKMGVTVFpyYk1Ucm5TRXVmY0ZtOUpzeGRaSU5JbEFtaEZlOXBna2FDdXNSRHpNNDdzNGh6d21sVEpUMkV3TjdIUzc0aEVPbVU4WGE5WG1rb2s2am05S1UiLCJtYWMiOiIyNjA5OTNlZmZhNzhjMDRiZmM3ZTE2MTBjNmFiNTQwYWE0N2IyNjZlZGQxMTU4NjIzYmZmNDFjOTljMDdhMTY2IiwidGFnIjoiIn0%3D; connectId={ttl:86400000,lastUsed:1737062229836,lastSynced:1737062229836}; kl1x_c00k1e=74e842f07bb652e838e6df87b85cf478; user_ip=109.163.161.196; _lr_geo_location=BA; DM_SitId287=1; DM_SitId287SecId1288=1; panoramaId_expiry=1737905170420; panoramaId=62bc6cdd6202f8ff0c916b4f0668185ca02cffb048ea55b233820c6a93a819cb; panoramaIdType=panoDevice; DM_SitId287SecId1299=1; FCNEC=%5B%5B%22AKsRol-IZz4ol0a6UFIB0mOtPrn2WRFSM4Uf-dTdUw6mywikcvYnE-XVBpI8nmKAuGMd9xbgSkTWrqXzjsJolcimaQQgB2RC8s9oEKa5MqmD4fqtiHZ6gOLxKxL9UN6c_VhGigXNdzjo9yg_zTbkNyV2uPNbWKx3Qw%3D%3D%22%5D%5D"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "document"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "navigate"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "Sec-Fetch-User",
+						"value": "?1"
+					},
+					{
+						"key": "Priority",
+						"value": "u=0, i"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "_token",
+							"value": "XZOVG2vUw4dOPRRDOrB6sj8q0loMIlbbwXwkiplm",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "vvstester11222",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "regloc",
+							"value": "0|0",
+							"type": "text"
+						},
+						{
+							"key": "spol",
+							"value": "m",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://www.klix.ba/mojprofil",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"mojprofil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.klix.ba/komentari/250115133",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Postavljanje komentara na članak\", function() {\r",
+							"\r",
+							"    // ispravan statusni kod\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    // ispravno otvaranje sekcije komentara\r",
+							"    const responseUrl = pm.request.url.toString();\r",
+							"    pm.expect(responseUrl).to.include(\"/komentari/\");\r",
+							"\r",
+							"    // na otvorenoj stranici je dodani komentar\r",
+							"    pm.expect(pm.response.text()).to.include(\"Nice move!\");\r",
+							"\r",
+							"    // prikazano je i ime korisnika pored komentara\r",
+							"    pm.expect(pm.response.text()).to.include(\"vvstester11\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.5"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.klix.ba"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.klix.ba/auto/elektricni/sve-manje-tjeskobe-od-skromnog-dometa-elektricni-vw-id7-presao-941-kilometar-s-jednim-punjenjem/250115133"
+					},
+					{
+						"key": "Cookie",
+						"value": "ppid=eyJpdiI6ImtSays3aGpMRWI5dk92M0ZUNTkza0E9PSIsInZhbHVlIjoicmN0ZnlpaVJ1OEJud3p2bmhuTXowRFNPbHdXZkNCYy9vVGt6WjNHVEl0VEMwUEVTWFJJWG9hRG41MmxzOGxLTm4yNWhobXFVQzFnS09ZSk9rLzdNcUlZUkdEdmhZN0FYcnBXTTFrNFZzb000WFc2N2ljQzAweE0zTHZSQndKNTAiLCJtYWMiOiIzZTUwZWE4Nzc5YjhkMjliYzIwNmMxNmZhMjQ2ZDM4MmQ2ZGQ4MWVhMzk4NjI5MmYwNzljNDcyZDAwOGM1NGU4IiwidGFnIjoiIn0%3D; theme=dark; _ga_C1R3FZH249=GS1.1.1737300368.8.1.1737301766.24.1.1318883018; _ga=GA1.1.326435081.1730017940; DotMetrics.DomainCookie={dc:4576ed23-8c5e-4806-bdf5-16c3ffb8a1cb,ts:1730017940399}; cto_bundle=OjV8aV9ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plUWlROXdHeEt4NEJ2WHM3NXV0bUFMVlBCUEt4UnllUnBGaFJWUyUyRm1XNHJLdEZuZ2tOVndxMHpwM29Obm1CaGJuMExWVldIMFNEdVJhUU9kekRUcktwTXBWdTZPT1FCWnpEd0slMkZXY0hueXNhbmVWNzZDNFhScnVvc3lvTUd1M2kzZyUzRCUzRA; cto_bidid=PN_RrV9LRU9FV0pTUjh1YW42MDJPamtyWlY0RVpMR1c5NEdTSGZDOEg2Rk02TDZmTlhQTEFwbWlqVENvV1VuY2RNZzlBY29FN1dZN29WS3JYME9EQ0dybnV2YkJIM2RBdUN6Yk1vdUxkbU1vYWZTYyUzRA; _cc_id=464431c243a3871cf8467dc56f633b54; cto_bundle=YWDX1l9ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plV2sxVXFhdXVsSFBldTRZVzlyYVJyYmMxZFIxUG05RVExMFZCWUVIN0p2eG9LUUJCMTB0bVdDVDA0ODdQaTg0ZlZPRTluaFRRRkV3SUZkYlo1VXBZVGN1TEI3V0dKakdDVXVmU2Fpc1dwVW9zZmdQTDJmd2VhaXpEOHN0MnF2RVp3JTNEJTNE; cto_bundle=OjV8aV9ldm5QV2Q1VGd0TUdDWiUyRmVRJTJCQ2plUWlROXdHeEt4NEJ2WHM3NXV0bUFMVlBCUEt4UnllUnBGaFJWUyUyRm1XNHJLdEZuZ2tOVndxMHpwM29Obm1CaGJuMExWVldIMFNEdVJhUU9kekRUcktwTXBWdTZPT1FCWnpEd0slMkZXY0hueXNhbmVWNzZDNFhScnVvc3lvTUd1M2kzZyUzRCUzRA; __gads=ID=da51a01573ba3b79:T=1730017945:RT=1737301765:S=ALNI_MYdURx0ER_t9BW2w81Xmu4Sp6OaHA; __gpi=UID=00000f5bb047a635:T=1730017945:RT=1737301765:S=ALNI_MZqFxDSv-KN2JcgcDaRx1iXJd7gtg; __eoi=ID=c26f00e55aa10a03:T=1730017945:RT=1737301765:S=AA-Afjbv9Itnjb6N-InvuJcVo9WN; cto_dna_bundle=jX4BmF9oY056UEJJdFMlMkZaUUx0b3hGWkYwa2N6bWxaTXVsZ2Q2UDNlMkxiMjlndzNCeU5vU2dHOVFFQ2I5ZlZQRUVuUllSVmt3eXZLdzVUVXU1dHl3SzJNJTJCbUElM0QlM0Q; DotmetricsDomainFPH=%7B%22dfph%22%3A%22164b6acbf2e92e3b2dcd96ac49acc929a1cb4432%22%2C%22time%22%3A1737062230738%2C%22niTime%22%3A1737300370221%2C%22v%22%3A10%7D; _oid=1228a8d2-4cc2-4dc2-ae0f-03acac1a6c48; klix_login_u=1; klix_login_k=; klix_login_sid=dabea0ae073e7b9bc042f50d7c2d3f03; g_state={i_l:0}; XSRF-TOKEN=eyJpdiI6ImQ2QVdySThZQW5aK0dZQTZOWER3WUE9PSIsInZhbHVlIjoiUmg1ZmlONTNQNHdYQ1R5UjAvcmhrWFMxK3dtTlpscklOVGtjZ0dRSnFSVGVZb1c5K09uQi9Ra05QNGxHTW52TDFCSTdrWGVvVDh1MmU1cS8wdlE1elNJZi9MZmxqa2NxQlFTczlNSWZCOXZKTU1BQS9GM0VxeThPMzh3RHFMWVkiLCJtYWMiOiIwMDUyMGIxNTFiYTIxMmE3N2E3NjhkNDE2MzRkNjdlMTNhMjkzMzE5ZTU0ZjQxYTkxZDNkOGEwNzQ1MjM1ZjNiIiwidGFnIjoiIn0%3D; klixba_session=eyJpdiI6IjByZW5zRjQ1WUZ5RlgwVytrYWVvNXc9PSIsInZhbHVlIjoiMm9mU2FnNzBxbG5NKzF6YUFmazl4Q1lBS0NFR3VxbHFsckYrb2x2VGt5eVl3ZWlOb2ZCVjAyY3lmNnEzSDlDRTBDNkhKbjdGMXdWOWFZenNmbEgrVG0yOGdFUFB6eDhEWWZxSk03ckFKZWN4eTJzYlAwTnN2bGhieXBRdnZRWVoiLCJtYWMiOiJkOTQxNmFjMzYzM2I0MTExMzVlYjMyMTAyNjBkMzdmYTUzZTY2ZDA1ZjMxY2E3ZGQxMWFiNjFjZTM0NGIwYjU3IiwidGFnIjoiIn0%3D; connectId={ttl:86400000,lastUsed:1737062229836,lastSynced:1737062229836}; kl1x_c00k1e=74e842f07bb652e838e6df87b85cf478; user_ip=109.163.161.196; _lr_geo_location=BA; DM_SitId287=1; DM_SitId287SecId1288=1; panoramaId_expiry=1737905170420; panoramaId=62bc6cdd6202f8ff0c916b4f0668185ca02cffb048ea55b233820c6a93a819cb; panoramaIdType=panoDevice; DM_SitId287SecId1299=1; DM_SitId287SecId1295=1; FCNEC=%5B%5B%22AKsRol9_9tv9kjI3E0oW-NnQIn6PZ6lIEFI64-UcLR7Cqwu5Z8lI1XjtRIaM6_Iqk9N92RpgvomfLaqD9eREjqgLT0wMh2ZiV_4HA0PKPQQCBvW6goSehemVEz8CufoJiKATYuRAQ6vMcyxgHLbYu2xKX1zaXy5VDg%3D%3D%22%5D%5D"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "document"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "navigate"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "Sec-Fetch-User",
+						"value": "?1"
+					},
+					{
+						"key": "Priority",
+						"value": "u=0, i"
+					},
+					{
+						"key": "TE",
+						"value": "trailers"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "_token",
+							"value": "XZOVG2vUw4dOPRRDOrB6sj8q0loMIlbbwXwkiplm",
+							"type": "text"
+						},
+						{
+							"key": "komentar",
+							"value": "Nice move!",
+							"type": "text"
+						},
+						{
+							"key": "redirect",
+							"value": "yes",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://www.klix.ba/komentari/250115133",
+					"protocol": "https",
+					"host": [
+						"www",
+						"klix",
+						"ba"
+					],
+					"path": [
+						"komentari",
+						"250115133"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
